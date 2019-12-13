@@ -22,6 +22,17 @@ namespace :dev do
     end
     puts "#{Contact.all.count} contatos cadastrados"
 
+    # CADASTRANDO PHONES
+    puts "Cadastrando phones..."
+    Contact.all.each do |contact|
+      # Gera de 1 a 5 phones randomicamente
+      Random.rand(5).times do |i|
+        phone = Phone.create!(number: Faker::PhoneNumber.cell_phone, contact_id: contact.id)
+        contact.phones << phone
+        contact.save!
+      end
+    end
+    puts "Phones cadastrados"
   end
 
 end

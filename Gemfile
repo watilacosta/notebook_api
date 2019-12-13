@@ -49,5 +49,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 
+################################################################################################
 # Centralization of locale data collection for Ruby on Rails
 gem 'rails-i18n', '~> 5.1'
+
+# A runtime developer console and IRB alternative with powerful introspection capabilities
+gem 'pry', '~> 0.12.2'

@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
   belongs_to :kind
+  has_many :phones
 
   # def country
   #   'Brasil'
@@ -23,12 +24,19 @@ class Contact < ApplicationRecord
   # end
 
   # FORMATANDO ATRIBUTO 'birthdate' PARA pt-BR sem criar novo atributo
-  def to_br
-    {
-      name: self.name,
-      email: self.email,
-      birthdate: (I18n.l(self.birthdate) if self.birthdate.present?)
-    }
+  # def to_br
+  #   {
+  #     name: self.name,
+  #     email: self.email,
+  #     birthdate: (I18n.l(self.birthdate) if self.birthdate.present?)
+  #   }
+  # end
+
+  # REESCREVENDO O METODO as_json PARA FORMATAR O ATRIBUTO birthdate PARA UMA MELHOR ABORDAGEM
+  def as_json(options = {})
+    hash = super(options)
+    hash[:birthdate] = (I18n.l(self.birthdate) if self.birthdate.present?)
+    hash
   end
 
 end
