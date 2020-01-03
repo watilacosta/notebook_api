@@ -3,13 +3,13 @@ class ContactSerializer < ActiveModel::Serializer
 
   # ASSOCIATIONS
   belongs_to :kind do
-    link(:kind) { kind_url(object.kind) }
+    link(:related) { kind_url(object.kind) }
   end
   has_many :phones
   has_one :address
 
   # LINKS (HATEOAS)
-  link(:self) { contact_url(object) }
+  # link(:self) { contact_url(object) }
   # link(:kind) { kind_url(object.kind) }
 
   def attributes(*args)
