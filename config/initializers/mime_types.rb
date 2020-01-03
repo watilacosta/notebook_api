@@ -1,4 +1,3 @@
-# Be sure to restart your server when you modify this file.
-
-# Add new mime types for use in respond_to blocks:
-# Mime::Type.register "text/richtext", :rtf
+# NAS RESPOSTAS JSON, A API TAMBÉM ENVIARÁ ESTE FORMATO PARA O CLIENT,
+# SEGUINDO A ESPECIFICAÇÃO JSON:API
+Mime::Type.register "application/vnd.api+json", :json
