@@ -41,6 +41,11 @@ class KindsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_kind
+      if params[:contact_id]
+        @kind = Contact.find(params[:contact_id]).kind
+        return @kind # -> Forçando o rails a retornar o @kind sem terminar o restante da action
+      end
+
       @kind = Kind.find(params[:id])
     end
 

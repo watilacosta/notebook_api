@@ -57,3 +57,6 @@ gem 'awesome_print'
 
 # Serializer
 gem 'active_model_serializers', '~> 0.10.0'
+
+# Debug
+gem 'pry', '~> 0.12.2'
