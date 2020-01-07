@@ -7,11 +7,12 @@ class ContactSerializer < ActiveModel::Serializer
   end
 
   has_many :phones do
-    link(:related) { contact_kind_url(object) }
+    link(:related) { contact_phones_url(object) }
   end
 
-
-  has_one :address
+  has_one :address do
+    link(:related) { contact_address_url(object) }
+  end
 
   # LINKS (HATEOAS)
   # link(:self) { contact_url(object) }
